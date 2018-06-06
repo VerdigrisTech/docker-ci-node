@@ -4,11 +4,12 @@
 [![Report Issues](https://img.shields.io/badge/issues-pivotal%20tracker-0fc8c3.svg)](https://www.pivotaltracker.com/n/projects/2072645)
 [![Join Chat on Slack](https://img.shields.io/badge/slack-%23team--insights-0fc8c3.svg)](https://verdigris.slack.com/messages/team-product0_jacob)
 
-Base image for running AWS CLI commands on [CircleCI](https://circleci.com).
+Base image for running Docker CLI and Heroku CLI commands on
+[CircleCI](https://circleci.com).
 
 ## Usage
 
-Use this image as a primary container for deploying to AWS on
+Use this image as a primary container for deploying to Heroku on
 [CircleCI](https://circleci.com):
 
 ```yaml
