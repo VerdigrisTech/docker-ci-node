@@ -1,4 +1,4 @@
-FROM node:8.9-alpine
+FROM node:8.11-alpine
 
 ENV DOCKER_VERSION 17.09.1-ce
 ENV HEROKU_CLI_PLATFORM linux-x64
