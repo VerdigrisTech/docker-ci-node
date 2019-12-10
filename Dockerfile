@@ -1,6 +1,6 @@
-FROM node:8.11-alpine
+FROM node:12.13-alpine
 
-ENV DOCKER_VERSION 17.09.1-ce
+ENV DOCKER_VERSION 18.06.0-ce
 ENV HEROKU_CLI_PLATFORM linux-x64
 
 COPY install-docker-cli.sh .
