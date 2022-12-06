@@ -13,7 +13,7 @@ RUN chmod +x ./jq ./yq
 
 FROM node:14.15.4-stretch
 
-RUN apt-get update && apt-get install curl git tar openssh-client && npm install -g @vue/cli
+RUN apt-get update && apt-get install curl git tar openssh-client && npm install -g npm@8.7.0
 COPY --from=builder /tmp/docker/docker /usr/bin/
 COPY --from=builder /tmp/jq /usr/bin/
 COPY --from=builder /tmp/yq /usr/bin/
