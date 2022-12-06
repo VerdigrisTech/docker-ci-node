@@ -11,11 +11,9 @@ RUN curl -fsSL https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}
 RUN curl -fsSL https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64 -o yq
 RUN chmod +x ./jq ./yq
 
-FROM node:12.13-alpine
+FROM node:14.15.4-stretch
 
-ENV HEROKU_CLI_PLATFORM linux-x64
-
-RUN apk update && apk add --no-cache curl git tar openssh-client && npm install -g heroku
+RUN apt-get update && apt-get install curl git tar openssh-client && npm install -g @vue/cli
 COPY --from=builder /tmp/docker/docker /usr/bin/
 COPY --from=builder /tmp/jq /usr/bin/
 COPY --from=builder /tmp/yq /usr/bin/
