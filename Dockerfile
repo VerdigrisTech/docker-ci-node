@@ -11,9 +11,9 @@ RUN curl -fsSL https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}
 RUN curl -fsSL https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64 -o yq
 RUN chmod +x ./jq ./yq
 
-FROM node:14.15.4-stretch
+FROM node:14.20.1-buster
 
-RUN apt-get update && apt-get install curl git tar openssh-client && npm install -g npm@8.7.0
+RUN apt-get update && apt-get install -y curl git tar openssh-client yarn && npm install -g npm@8.7.0
 COPY --from=builder /tmp/docker/docker /usr/bin/
 COPY --from=builder /tmp/jq /usr/bin/
 COPY --from=builder /tmp/yq /usr/bin/
