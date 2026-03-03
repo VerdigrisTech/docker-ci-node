@@ -1,4 +1,4 @@
-FROM debian:buster-slim AS builder
+FROM debian:bullseye-slim AS builder
 
 ARG DOCKER_VERSION=27.3.1
 ARG JQ_VERSION=1.6
@@ -11,7 +11,7 @@ RUN curl -fsSL https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}
 RUN curl -fsSL https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64 -o yq
 RUN chmod +x ./jq ./yq
 
-FROM node:18.14.1-buster
+FROM node:18-bullseye
 
 RUN apt-get update && apt-get install -y curl git tar openssh-client yarn && npm install -g npm@9.3.1
 COPY --from=builder /tmp/docker/docker /usr/bin/
